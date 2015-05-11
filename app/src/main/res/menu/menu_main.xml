@@ -3,4 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".ListRecept">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/list_recept" android:title="@string/list_recept"
+        android:orderInCategory="200" app:showAsAction="never" />
 </menu>

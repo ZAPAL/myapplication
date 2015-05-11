@@ -4,4 +4,6 @@
     tools:context="com.example.zapal.myapplication.ListRecept">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_main" android:title="@string/action_main"
+        android:orderInCategory="100" app:showAsAction="never" />
 </menu>
