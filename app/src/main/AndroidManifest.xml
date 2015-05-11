@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ListRecept"
+            android:label="@string/title_activity_list_recept" >
+        </activity>
     </application>
 
 </manifest>

@@ -3,4 +3,6 @@
 
     <string name="action_settings">Настройка</string>
     <string name="MainPage">Главная страница</string>
+    <string name="title_activity_list_recept">Список рецептов </string>
+    <string name="list_recept">Список рецептов</string>
 </resources>
