@@ -32,14 +32,32 @@ public class ListRecept extends ActionBarActivity {
         listView = (ListView) findViewById(R.id.list);
 
         // Defined Array values to show in ListView
-        String[] values = new String[] { "Android List View",
-                "Adapter implementation",
-                "Simple List View In Android",
-                "Create List View Android",
-                "Android Example",
-                "List View Source Code",
-                "List View Array Adapter",
-                "Android Example List View"
+        String[] values = new String[] { "Автобус № 1",
+                "Автобус № 2",
+                "Автобус № 3",
+                "Автобус № 4",
+                "Автобус № 5",
+                "Автобус № 6",
+                "Автобус № 7",
+                "Автобус № 8",
+                "Автобус № 10",
+                "Автобус № 11",
+                "Автобус № 12",
+                "Автобус № 13",
+                "Автобус № 14",
+                "Автобус № 15",
+                "Автобус № 16",
+                "Автобус № 17",
+                "Автобус № 18",
+                "Автобус № 19",
+                "Автобус № 20",
+                "Автобус № 21",
+                "Автобус № 22",
+                "Автобус № 23",
+                "Автобус № 24",
+                "Автобус № 25",
+                "Автобус № 26",
+
         };
 
         // Define a new Adapter
@@ -66,6 +84,10 @@ public class ListRecept extends ActionBarActivity {
 
                 // ListView Clicked item value
                 String  itemValue    = (String) listView.getItemAtPosition(position);
+
+                Intent myIntent = new Intent(ListRecept.this, DetailActivity.class);
+                myIntent.putExtra("BUSN", itemValue);
+                startActivity(myIntent);
 
                 // Show Alert
                 Toast toast = new Toast(getApplicationContext());

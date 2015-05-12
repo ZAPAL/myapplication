@@ -3,7 +3,10 @@
 
     <string name="action_settings">Настройка</string>
     <string name="MainPage">Главная страница</string>
-    <string name="title_activity_list_recept">Список рецептов </string>
-    <string name="list_recept">Список рецептов</string>
+    <string name="title_activity_list_recept">Список автобусов</string>
+    <string name="list_recept">Список автобусов</string>
     <string name="action_main">На главную</string>
+    <string name="title_activity_detail">Детальная автобуса</string>
+    <string name="number_bus">Number bus</string>
+
 </resources>

@@ -8,32 +8,32 @@
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "com.example.zapal.myapplication.MainActivity"/>
       <point      
-        x = "500"      
-        y = "100"/>
+        x = "1468"      
+        y = "108"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
         className = "com.example.zapal.myapplication.MainActivity"/>
       <point      
-        x = "1824"      
-        y = "100"/>
+        x = "2792"      
+        y = "108"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
         className = "com.example.zapal.myapplication.ListRecept"/>
       <point      
-        x = "2720"      
-        y = "92"/>
+        x = "376"      
+        y = "1696"/>
     </statePointEntry>
     <statePointEntry>
       <state      
         class = "com.android.tools.idea.editors.navigation.model.MenuState"      
         className = "com.example.zapal.myapplication.ListRecept"/>
       <point      
-        x = "3988"      
-        y = "92"/>
+        x = "1644"      
+        y = "1696"/>
     </statePointEntry>
   </locations>
 </navigationModel>

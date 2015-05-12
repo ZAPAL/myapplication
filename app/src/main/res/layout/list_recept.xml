@@ -15,12 +15,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    style="@style/TabAppTheme">
 
     <ListView
         android:id="@+id/list"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+
+        style="@style/AppTheme"
+        android:choiceMode="singleChoice"
+        android:clickable="true"
+        android:drawSelectorOnTop="true"
+        android:layoutMode="clipBounds"
+        android:longClickable="true">
     </ListView>
+
+
+        <ImageView
+            android:id="@android:id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@android:id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            style="@style/TabTextAppTheme" />
+
 
 </LinearLayout>
