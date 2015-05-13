@@ -1,16 +1,14 @@
 package com.example.zapal.myapplication;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView;
-import android.widget.Toast;
 
 
 public class ListRecept extends ActionBarActivity {
@@ -89,12 +87,12 @@ public class ListRecept extends ActionBarActivity {
                 myIntent.putExtra("BUSN", itemValue);
                 startActivity(myIntent);
 
-                // Show Alert
+               /* // Show Alert
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                 Toast.makeText(getApplicationContext(),
                         "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-                        .show();
+                        .show();*/
 
             }
 
