@@ -1,14 +1,24 @@
 package com.example.zapal.myapplication;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class ListRecept extends ActionBarActivity {
@@ -19,10 +29,11 @@ public class ListRecept extends ActionBarActivity {
         setContentView(R.layout.list_recept);
     }*/
 
-    ListView listView ;
+    //ListView listView ;
+    final String LOG_TAG = "myLogs";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    //@Override
+    /*protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_recept);
 
@@ -87,16 +98,101 @@ public class ListRecept extends ActionBarActivity {
                 myIntent.putExtra("BUSN", itemValue);
                 startActivity(myIntent);
 
-               /* // Show Alert
+               *//* // Show Alert
                 Toast toast = new Toast(getApplicationContext());
                 toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                 Toast.makeText(getApplicationContext(),
                         "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
-                        .show();*/
+                        .show();*//*
 
             }
 
         });
+    }*/
+
+
+    private static final String DB_NAME = "bus.sql";
+    //Хорошей практикой является задание имен полей БД константами
+    private static final String TABLE_NAME = "bus";
+    private static final String NUMBER = "NUMBER";
+    private static final String ROUTE = "ROUTE";
+
+    private SQLiteDatabase myDataBase;
+    private ListView listView;
+    private ArrayList bus;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        //Наш ключевой хелпер
+        //ExternalDbOpenHelper dbOpenHelper = new ExternalDbOpenHelper(this);
+       // database = dbOpenHelper.openDataBase();
+
+        ExternalDbOpenHelper myDbHelper = new ExternalDbOpenHelper(this);
+        myDbHelper = new ExternalDbOpenHelper(this);
+
+        try {
+
+            myDbHelper.createDataBase();
+
+        } catch (IOException ioe) {
+
+            throw new Error("Unable to create database");
+
+        }
+
+        try {
+
+            myDbHelper.openDataBase();
+
+        }catch(SQLException sqle){
+
+            throw sqle;
+
+        }
+        //Все, база открыта!
+        fillFreinds();
+
+        setUpList();
+    }
+
+    private void setUpList() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, android.R.id.text1, bus);
+
+
+        // Assign adapter to ListView
+        listView.setAdapter(adapter);
+
+        //Подарим себе тост — для души
+        listView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View view,
+                                    int position,long id) {
+                Toast.makeText(getApplicationContext(),
+                        ((TextView) view).getText() +
+                                " could be iDev's friend",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //Извлечение элементов из базы данных
+    private void fillFreinds() {
+        bus = new ArrayList<String>();
+        Log.v(LOG_TAG, "test");
+        Cursor friendCursor = myDataBase.query("bus", null,null, null,null,null,null);
+        friendCursor.moveToFirst();
+        if(!friendCursor.isAfterLast()) {
+            do {
+                String number = friendCursor.getString(1);
+                Log.v(LOG_TAG, number);
+                bus.add(number);
+            } while (friendCursor.moveToNext());
+        }
+
+        friendCursor.close();
     }
 
     @Override
@@ -133,4 +229,6 @@ public class ListRecept extends ActionBarActivity {
         });
         return result;
     }
+
+
 }
